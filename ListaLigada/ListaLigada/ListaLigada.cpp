@@ -150,7 +150,7 @@ void inserirElemento()
 		aux->prox = novo;
 	}
 }
-
+/*
 void excluirElemento()
 {
 	int numero;
@@ -186,11 +186,11 @@ void excluirElemento()
 
 		//liberar memoria
 		free(atual);
-		
+
 		cout << "ELEMENTO REMOVIDO";
 			
 }
-
+*/
 void buscarElemento()
 {
 	int numero;
