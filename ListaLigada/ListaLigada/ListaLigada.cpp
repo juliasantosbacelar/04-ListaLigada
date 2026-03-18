@@ -122,7 +122,7 @@ void inserirElemento()
 	cout << "Digite o elemento: ";
 	cin >> numero;
 
-	// 🔎 verifica duplicado
+	// verifica duplicado
 	if (posicaoElemento(numero) != NULL) {
 		cout << "Elemento ja existe. Nao sera inserido.\n";
 		return;
@@ -153,7 +153,42 @@ void inserirElemento()
 
 void excluirElemento()
 {
-	
+	int numero;
+	cout << "Digite o numero que deseja excluir: ";
+	cin >> numero;
+
+	//verificando se existe
+	if (posicaoElemento(numero) == NULL){
+		cout << "ELEMENTO NAO ENCONTRADO";
+		return;
+	}	
+		// Caso A: excluir o primeiro.
+		if(primeiro->valor == numero){
+			NO* aux = primeiro;
+			primeiro = primeiro->prox;
+			free(aux);
+			cout << "ELEMENTO REMOVIDO";
+			return;
+		}
+
+		//caso B: O elemento está no meio ou no fim da lista.
+
+		NO* atual = primeiro;
+		NO* anterior = NULL;
+
+		while (atual != NULL && atual->valor != numero){
+			anterior = atual;
+			atual = atual->prox;
+		}
+
+		//religando a lista
+		anterior->prox=atual->prox;
+
+		//liberar memoria
+		free(atual);
+		
+		cout << "ELEMENTO REMOVIDO";
+			
 }
 
 void buscarElemento()
