@@ -150,7 +150,6 @@ void inserirElemento()
 		aux->prox = novo;
 	}
 }
-/*
 void excluirElemento()
 {
 	int numero;
@@ -158,39 +157,38 @@ void excluirElemento()
 	cin >> numero;
 
 	//verificando se existe
-	if (posicaoElemento(numero) == NULL){
-		cout << "ELEMENTO NAO ENCONTRADO";
-		return;
-	}	
-		// Caso A: excluir o primeiro.
-		if(primeiro->valor == numero){
-			NO* aux = primeiro;
-			primeiro = primeiro->prox;
-			free(aux);
-			cout << "ELEMENTO REMOVIDO";
-			return;
-		}
+	if (posicaoElemento(numero)){
+		cout << "ELEMENTO NAO ENCONTRADO" << endl;
+		return; //se for n encontrado para aqui 
+	}
+	else{
+		cout << "ELEMENTO ENCONTRADO" << endl;
 
-		//caso B: O elemento está no meio ou no fim da lista.
+		//ponteiros
+		NO* aux = primeiro;
+		NO* ant = NULL; //anterior
 
-		NO* atual = primeiro;
-		NO* anterior = NULL;
-
-		while (atual != NULL && atual->valor != numero){
-			anterior = atual;
-			atual = atual->prox;
-		}
-
-		//religando a lista
-		anterior->prox=atual->prox;
-
-		//liberar memoria
-		free(atual);
-
-		cout << "ELEMENTO REMOVIDO";
+		//enquanto aux n for o ultimo
+		while(aux !=NULL) { 
+			if(aux->valor == numero) {// se aux = numero
+				if (ant == NULL) // anterior = nulo => se anterior n existir na lista 
+				{
+					primeiro = aux->prox; // religanda a lista
+				} else{
+					ant->prox = aux->prox; //Religa a lista
+				}
+				
+				free(aux); //apagando o numero solicitado
+				cout << "Elemento excluido";
+			} 
 			
+			ant = aux; //ant se torna aux, antes de mudar e ficar atrás 
+			aux = aux->prox; //faz com que a lista ande.
+		}
+	}		
 }
-*/
+
+
 void buscarElemento()
 {
 	int numero;
