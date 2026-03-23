@@ -116,6 +116,7 @@ void exibirElementos()
 	}
 }
 
+//ex 01
 void inserirElemento()
 {
 	int numero;
@@ -150,6 +151,7 @@ void inserirElemento()
 		aux->prox = novo;
 	}
 }
+//ex 3
 void excluirElemento()
 {
 	int numero;
@@ -188,7 +190,7 @@ void excluirElemento()
 	}		
 }
 
-
+//ex 2
 void buscarElemento()
 {
 	int numero;
